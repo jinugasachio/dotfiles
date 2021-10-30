@@ -12,5 +12,6 @@
     FILENAME=$(basename $FILE)
     echo load $FILENAME ...
     ln -s $DOTPATH/.zsh/$FILENAME ~/.zsh/$FILENAME
+    echo installed $FILENAME
   done
 }
