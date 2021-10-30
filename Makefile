@@ -1,4 +1,4 @@
-NAME	   := DotfileInstaller
+NAME     := DotfileInstaller
 VERSION  := 1.0.0
 
 .PHONY: install clean
