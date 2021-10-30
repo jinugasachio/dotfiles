@@ -6,35 +6,19 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 : "load powerlevel10k plugin file" && {
-  source $HOME/dotfiles/.zsh/.p10k.zsh
+  source $HOME/dotfiles/.zsh/p10k.zsh
+}
+
+: "load alias file" && {
+  source $HOME/dotfiles/.zsh/alias.zsh
 }
 
 [[ -d ~/.rbenv  ]] && \
   export PATH=${HOME}/.rbenv/bin:${PATH} && \
   eval "$(rbenv init -)"
 
-# alias
-alias a='aws'
-alias acl='aws configure list'
-alias d='docker'
-alias dc='docker compose'
-alias edit='vim ~/dotfiles/.zshrc'
-alias k='kubectl'
-alias kbn='kubens'
-alias kcx='kubectx'
-alias g='git'
-alias ga='git add'
-alias gc='git commit'
-alias gpoh='git push origin head'
-alias t='terraform'
-alias ls='ls -G'
-alias reload='source ~/dotfiles/.zshrc'
-
-
-
 autoload -Uz compinit
 compinit
-
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
