@@ -16,6 +16,6 @@
 !/Makefile
 !/.zshrc
 !/.zsh/
-!/.zsh/.p10k.zsh
+!/.zsh/p10k.zsh
 !/README.md
 !.gitignore
