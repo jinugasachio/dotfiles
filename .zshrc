@@ -18,8 +18,7 @@ fi
   export PATH=${HOME}/.rbenv/bin:${PATH} && \
   eval "$(rbenv init -)"
 
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
