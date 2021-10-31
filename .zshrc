@@ -6,25 +6,22 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # To customize prompt, run `p10k configure` or edit p10k.zsh.
-: "load powerlevel10k plugin file" && {
+: "load powerlevel10k files" && {
   source $HOME/dotfiles/.zsh/p10k.zsh
+  source $HOME/powerlevel10k/powerlevel10k.zsh-theme # powerlevel10kのinstallがされていることが前提 https://github.com/romkatv/powerlevel10k#manual
 }
 
 : "load alias file" && {
   source $HOME/dotfiles/.zsh/alias.zsh
 }
 
-[[ -d ~/.rbenv  ]] && \
-  export PATH=${HOME}/.rbenv/bin:${PATH} && \
-  eval "$(rbenv init -)"
+# Ruby
+[[ -d ~/.rbenv  ]] && export PATH=${HOME}/.rbenv/bin:${PATH} && eval "$(rbenv init -)"
 
+# TODO: 下記をファイル分割して整理する
 autoload -Uz compinit && compinit
-
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
-
 fpath=(~/.zsh/completion $fpath)
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
-
 source <(kubectl completion zsh)
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
