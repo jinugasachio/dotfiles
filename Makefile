@@ -4,4 +4,4 @@ VERSION  := 1.0.0
 .PHONY: install clean
 
 install:
-				/bin/zsh ./install.zsh
+	/bin/zsh ./install.zsh
