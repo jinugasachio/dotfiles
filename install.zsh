@@ -11,6 +11,6 @@
   do
     FILENAME=$(basename $FILE)
     ln -s $DOTPATH/.zsh/$FILENAME ~/.zsh/$FILENAME
-    echo installed $FILENAME
   done
+  echo installed successfully
 }
