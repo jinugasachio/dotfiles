@@ -7,7 +7,11 @@ fi
 
 : "load powerlevel10k files" && {
   source $HOME/dotfiles/.zsh/p10k.zsh # To customize prompt, run `p10k configure` or edit p10k.zsh.
-  source $HOME/powerlevel10k/powerlevel10k.zsh-theme # powerlevel10kのinstallがされていることが前提 https://github.com/romkatv/powerlevel10k#manual
+  source $HOME/powerlevel10k/powerlevel10k.zsh-theme
+}
+
+: "load zsh-autosuggestions file" && {
+  source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 }
 
 : "load alias file" && {
