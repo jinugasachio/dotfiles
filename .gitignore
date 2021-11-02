@@ -18,5 +18,6 @@
 !/.zsh/
 !/.zsh/alias.zsh
 !/.zsh/p10k.zsh
+!/.zsh/peco.zsh
 !/README.md
 !.gitignore
