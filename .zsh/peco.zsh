@@ -1,16 +1,6 @@
-function peco-change-derectory() {
-  cd "$(find . -type d | peco)"  
-}
-zle -N peco-change-derectory
-bindkey '^z' peco-change-derectory
-
-function peco-select-history() {
-  BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle clear-screen
-}
-zle -N peco-select-history
+bindkey '^b' peco-switch-branch
 bindkey '^r' peco-select-history
+bindkey '^z' peco-change-derectory
 
 function peco-switch-branch() {
     local selected_line="$(git for-each-ref --format='%(refname:short) | %(committerdate:relative) | %(committername) | %(subject)' --sort=-committerdate refs/heads refs/remotes \
@@ -27,4 +17,16 @@ function peco-switch-branch() {
     zle clear-screen
 }
 zle -N peco-switch-branch
-bindkey '^b' peco-switch-branch
+
+function peco-select-history() {
+  BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle clear-screen
+}
+zle -N peco-select-history
+
+function peco-change-derectory() {
+  cd "$(find . -type d | peco)"  
+}
+zle -N peco-change-derectory
+
