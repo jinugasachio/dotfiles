@@ -5,3 +5,6 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 fpath=(~/.zsh/completion $fpath)
 source <(kubectl completion zsh)
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+
+zstyle ':completion:*' format '%BCompleting %d%b'
+zstyle ':completion:*' group-name ''
