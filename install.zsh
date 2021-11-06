@@ -15,6 +15,7 @@
 
 : 'install zshrc' && {
   ln -s $DOTPATH/.zshrc ~/.zshrc
+  ln -s $DOTPATH/.zshenv ~/.zshenv
   for FILE in $(find $DOTPATH/.zsh/ -type f);
   do
     FILENAME=$(basename $FILE)
