@@ -18,6 +18,10 @@ fi
   source $HOME/dotfiles/.zsh/alias.zsh
 }
 
+: "load function file" && {
+  source $HOME/dotfiles/.zsh/function.zsh
+}
+
 : "load completion file" && {
   source $HOME/dotfiles/.zsh/completion.zsh
 }

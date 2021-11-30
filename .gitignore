@@ -19,7 +19,7 @@
 !/.zsh/
 !/.zsh/alias.zsh
 !/.zsh/completion.zsh
-!/.zsh/custom_function.zsh
+!/.zsh/function.zsh
 !/.zsh/p10k.zsh
 !/.zsh/peco.zsh
 !/README.md
