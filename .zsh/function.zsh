@@ -1,4 +1,4 @@
-gbdelete() {
+gbdel() {
   command="git branch | grep -v '*'"
   for branch_name in "$@"; do
     command="${command} | grep -v ${branch_name}"
