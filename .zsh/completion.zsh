@@ -1,11 +1,11 @@
-autoload -Uz compinit && compinit                           # compsysで用意されている全ての補完機能を有効にする  
-source /usr/local/bin/aws_zsh_completer.sh                  # awscliの補完
+autoload -Uz compinit && compinit                           # compsysで用意されている全ての補完機能を有効にする
+complete -C '/usr/local/bin/aws_completer' aws              # awscliの補完
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 fpath=(~/.zsh/completion $fpath)
 source <(kubectl completion zsh)
-[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh) 
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 
 # *********************************
 #
