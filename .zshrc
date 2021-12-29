@@ -34,3 +34,5 @@ fi
 [[ -d ~/.rbenv  ]] && export PATH=${HOME}/.rbenv/bin:${PATH} && eval "$(rbenv init -)"
 
 setopt no_beep # ビープ音を消す
+
+bindkey -e
