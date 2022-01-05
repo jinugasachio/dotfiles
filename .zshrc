@@ -36,3 +36,6 @@ fi
 setopt no_beep # ビープ音を消す
 
 bindkey -e
+
+# direnvをzsh上で有効にする
+eval "$(direnv hook zsh)"
