@@ -39,3 +39,6 @@ bindkey -e
 
 # direnvをzsh上で有効にする
 eval "$(direnv hook zsh)"
+
+# AQUA
+export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
