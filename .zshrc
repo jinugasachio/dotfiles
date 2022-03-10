@@ -45,3 +45,4 @@ eval "$(gh completion -s zsh)"
 
 # AQUA
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
+export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
