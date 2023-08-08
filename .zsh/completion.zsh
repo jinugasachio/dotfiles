@@ -6,6 +6,10 @@ fpath=(~/.zsh/completion $fpath)
 source <(kubectl completion zsh)
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 
+# helm 補完
+source <(helm completion zsh)
+
+
 # gcloud 補完
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
