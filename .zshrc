@@ -45,6 +45,8 @@ export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
 setopt no_beep # ビープ音を消す
 
@@ -61,3 +63,4 @@ eval "$(saml2aws --completion-script-zsh)"
 
 # AQUA
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
+
