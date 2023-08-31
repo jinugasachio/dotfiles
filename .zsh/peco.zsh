@@ -33,7 +33,7 @@ zle -N peco-change-derectory
 # gcloud でプロジェクトの切り替えを楽にする
 # https://blog.engineer.adways.net/entry/2018/06/08/150000
 function gx() {
-  projData=$(gcloud config configurations list | peco)
+  projData=$(gcloud config configurations list | peco --query "$LBUFFER")
   if echo "${projData}" | grep -E "^[a-zA-Z].*" > /dev/null ; then
     config=$(echo ${projData} | awk '{print $1}')
     gcloud config configurations activate ${config}
