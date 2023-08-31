@@ -19,9 +19,9 @@ function peco-switch-branch() {
 zle -N peco-switch-branch
 
 function peco-select-history() {
-  BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle clear-screen
+    BUFFER=$(history 1 | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\*?\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$LBUFFER")
+    CURSOR=${#BUFFER}
+    zle reset-prompt
 }
 zle -N peco-select-history
 
@@ -31,27 +31,14 @@ function peco-change-derectory() {
 zle -N peco-change-derectory
 
 # gcloud でプロジェクトの切り替えを楽にする
-# https://qiita.com/sonots/items/906798c408132e26b41c
-function gcloud-activate() {
-  name="$1"
-  project="$2"
-  echo "gcloud config configurations activate \"${name}\""
-  gcloud config configurations activate "${name}"
-}
-
-function gx-complete() {
-  _values $(gcloud config configurations list | awk '{print $1}')
-}
-
+# https://blog.engineer.adways.net/entry/2018/06/08/150000
 function gx() {
-  name="$1"
-  if [ -z "$name" ]; then
-    line=$(gcloud config configurations list | peco)
-    name=$(echo "${line}" | awk '{print $1}')
-  else
-    line=$(gcloud config configurations list | grep "$name")
+  projData=$(gcloud config configurations list | peco)
+  if echo "${projData}" | grep -E "^[a-zA-Z].*" > /dev/null ; then
+    config=$(echo ${projData} | awk '{print $1}')
+    gcloud config configurations activate ${config}
+
+    echo "=== The current account is as follows ==="
+    gcloud config configurations list | grep "${config}"
   fi
-  project=$(echo "${line}" | awk '{print $4}')
-  gcloud-activate "${name}" "${project}"
 }
-compdef gx-complete gx
