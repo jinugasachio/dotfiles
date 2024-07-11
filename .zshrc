@@ -39,27 +39,12 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
-# Go
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
 setopt no_beep # ビープ音を消す
 
 bindkey -e
 
-# direnvをzsh上で有効にする
-eval "$(direnv hook zsh)"
-
 # gh
 eval "$(gh completion -s zsh)"
-
-# saml2aws
-eval "$(saml2aws --completion-script-zsh)"
 
 # AQUA
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"

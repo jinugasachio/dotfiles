@@ -3,19 +3,6 @@ autoload -U +X bashcompinit && bashcompinit
 complete -C '/usr/local/bin/aws_completer' aws              # awscliの補完
 complete -o nospace -C /usr/local/bin/terraform terraform
 fpath=(~/.zsh/completion $fpath)
-source <(kubectl completion zsh)
-[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
-
-# helm 補完
-source <(helm completion zsh)
-
-# az 補完
-autoload bashcompinit && bashcompinit
-source $(brew --prefix)/etc/bash_completion.d/az
-
-# gcloud 補完
-source '/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
 # *********************************
 #
