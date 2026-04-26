@@ -1,21 +1,45 @@
 autoload -Uz compinit && compinit                           # compsysで用意されている全ての補完機能を有効にする
 autoload -U +X bashcompinit && bashcompinit
-complete -C '/usr/local/bin/aws_completer' aws              # awscliの補完
-complete -o nospace -C /usr/local/bin/terraform terraform
 fpath=(~/.zsh/completion $fpath)
-source <(kubectl completion zsh)
-[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+
+if command -v aws_completer >/dev/null 2>&1; then
+  complete -C "$(command -v aws_completer)" aws              # awscliの補完
+fi
+
+if command -v terraform >/dev/null 2>&1; then
+  complete -o nospace -C "$(command -v terraform)" terraform
+fi
+
+if command -v kubectl >/dev/null 2>&1; then
+  source <(kubectl completion zsh)
+fi
 
 # helm 補完
-source <(helm completion zsh)
+if command -v helm >/dev/null 2>&1; then
+  source <(helm completion zsh)
+fi
 
 # az 補完
-autoload bashcompinit && bashcompinit
-source $(brew --prefix)/etc/bash_completion.d/az
+if command -v brew >/dev/null 2>&1 && command -v az >/dev/null 2>&1; then
+  az_completion="$(brew --prefix)/etc/bash_completion.d/az"
+  [[ -r "$az_completion" ]] && source "$az_completion"
+  unset az_completion
+fi
 
 # gcloud 補完
-source '/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+for gcloud_sdk_dir in \
+  '/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk' \
+  '/opt/homebrew/Caskroom/google-cloud-sdk'
+do
+  if [[ -r "$gcloud_sdk_dir/path.zsh.inc" ]]; then
+    source "$gcloud_sdk_dir/path.zsh.inc"
+  fi
+
+  if [[ -r "$gcloud_sdk_dir/completion.zsh.inc" ]]; then
+    source "$gcloud_sdk_dir/completion.zsh.inc"
+  fi
+done
+unset gcloud_sdk_dir
 
 # *********************************
 #

@@ -6,8 +6,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 : "load powerlevel10k files" && {
-  source $HOME/dotfiles/.zsh/p10k.zsh # To customize prompt, run `p10k configure` or edit p10k.zsh.
-  source $HOME/powerlevel10k/powerlevel10k.zsh-theme
+  source "$HOME/powerlevel10k/powerlevel10k.zsh-theme"
+  source "$HOME/dotfiles/.zsh/p10k.zsh" # To customize prompt, run `p10k configure` or edit p10k.zsh.
 }
 
 : "load zsh-autosuggestions file" && {
@@ -63,4 +63,3 @@ eval "$(saml2aws --completion-script-zsh)"
 
 # AQUA
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
-
