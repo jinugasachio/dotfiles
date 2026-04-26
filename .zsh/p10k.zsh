@@ -110,6 +110,11 @@
     # example               # example user-defined segment (see prompt_example function below)
   )
 
+  if [[ -n ${CMUX_BUNDLE_ID:-} || -n ${CMUX_SHELL_INTEGRATION:-} ]]; then
+    typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs prompt_char)
+    typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+  fi
+
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
   typeset -g POWERLEVEL9K_MODE=nerdfont-complete
   # When set to `moderate`, some icons will have an extra space after them. This is meant to avoid
@@ -130,7 +135,11 @@
   typeset -g POWERLEVEL9K_ICON_BEFORE_CONTENT=
 
   # Add an empty line before each prompt.
-  typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+  if [[ -n ${CMUX_BUNDLE_ID:-} || -n ${CMUX_SHELL_INTEGRATION:-} ]]; then
+    typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
+  else
+    typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+  fi
 
   # Connect left prompt lines with these symbols. You'll probably want to use the same color
   # as POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_FOREGROUND below.
@@ -1591,7 +1600,11 @@
   #   - always:   Trim down prompt when accepting a command line.
   #   - same-dir: Trim down prompt when accepting a command line unless this is the first command
   #               typed after changing current working directory.
-  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
+  if [[ -n ${CMUX_BUNDLE_ID:-} || -n ${CMUX_SHELL_INTEGRATION:-} ]]; then
+    typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
+  else
+    typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
+  fi
 
   # Instant prompt mode.
   #
