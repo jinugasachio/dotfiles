@@ -1,0 +1,8 @@
+[mgr]
+ratio = [0, 4, 3]
+show_hidden = true
+
+[plugin]
+prepend_previewers = [
+  { url = "*/", run = "noop" },
+]

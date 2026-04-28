@@ -22,5 +22,11 @@
 !/.zsh/function.zsh
 !/.zsh/p10k.zsh
 !/.zsh/peco.zsh
+!/.config/
+!/.config/ghostty/
+!/.config/ghostty/config
+!/.config/starship.toml
+!/.config/yazi/
+!/.config/yazi/yazi.toml
 !/README.md
 !.gitignore

@@ -2,11 +2,7 @@
 
 : 'setup environment' && {
   export DOTPATH=$(pwd)
-  mkdir ~/.zsh
-}
-
-: 'install powerlevel10k' && {
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+  mkdir -p ~/.zsh ~/.config/ghostty ~/.config/yazi
 }
 
 : 'install zsh-autosuggestions' && {
@@ -21,5 +17,8 @@
     FILENAME=$(basename $FILE)
     ln -s $DOTPATH/.zsh/$FILENAME ~/.zsh/$FILENAME
   done
+  ln -s $DOTPATH/.config/ghostty/config ~/.config/ghostty/config
+  ln -s $DOTPATH/.config/starship.toml ~/.config/starship.toml
+  ln -s $DOTPATH/.config/yazi/yazi.toml ~/.config/yazi/yazi.toml
   echo installed successfully
 }
