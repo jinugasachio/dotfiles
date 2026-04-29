@@ -26,6 +26,7 @@
 !/.config/ghostty/
 !/.config/ghostty/config
 !/.config/starship.toml
+!/.config/starship-cmux.toml
 !/.config/yazi/
 !/.config/yazi/yazi.toml
 !/README.md

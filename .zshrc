@@ -67,6 +67,13 @@ fi
 # AQUA
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
 
-if command -v starship >/dev/null 2>&1; then
+_is_cmux() {
+  [[ -n ${CMUX_BUNDLE_ID:-} || -n ${CMUX_SHELL_INTEGRATION:-} || ${TERM_PROGRAM:-} == cmux || ${TERM:-} == *cmux* ]]
+}
+
+if _is_cmux && command -v starship >/dev/null 2>&1; then
+  export STARSHIP_CONFIG="$HOME/dotfiles/.config/starship-cmux.toml"
+  eval "$(starship init zsh)"
+elif command -v starship >/dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
