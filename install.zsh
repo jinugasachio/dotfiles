@@ -2,7 +2,7 @@
 
 : 'setup environment' && {
   export DOTPATH=$(pwd)
-  mkdir -p ~/.zsh ~/.config/ghostty ~/.config/yazi
+  mkdir -p ~/.zsh ~/.config/ghostty ~/.config/yazi/plugins
 }
 
 : 'install zsh-autosuggestions' && {
@@ -20,5 +20,7 @@
   ln -s $DOTPATH/.config/ghostty/config ~/.config/ghostty/config
   ln -s $DOTPATH/.config/starship.toml ~/.config/starship.toml
   ln -s $DOTPATH/.config/yazi/yazi.toml ~/.config/yazi/yazi.toml
+  ln -s $DOTPATH/.config/yazi/keymap.toml ~/.config/yazi/keymap.toml
+  ln -s $DOTPATH/.config/yazi/plugins/resize-pane.yazi ~/.config/yazi/plugins/resize-pane.yazi
   echo installed successfully
 }

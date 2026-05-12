@@ -29,5 +29,9 @@
 !/.config/starship-cmux.toml
 !/.config/yazi/
 !/.config/yazi/yazi.toml
+!/.config/yazi/keymap.toml
+!/.config/yazi/plugins/
+!/.config/yazi/plugins/resize-pane.yazi/
+!/.config/yazi/plugins/resize-pane.yazi/main.lua
 !/README.md
 !.gitignore

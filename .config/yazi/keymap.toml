@@ -1,0 +1,6 @@
+[mgr]
+prepend_keymap = [
+  { on = "<", run = "plugin resize-pane -- narrower", desc = "Narrow file list pane" },
+  { on = ">", run = "plugin resize-pane -- wider", desc = "Widen file list pane" },
+  { on = "=", run = "plugin resize-pane -- reset", desc = "Reset file list pane width" },
+]
